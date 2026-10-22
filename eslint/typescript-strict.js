@@ -30,7 +30,10 @@ export default tseslint.config(...tseslint.configs.recommendedTypeChecked, {
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
-    '@typescript-eslint/consistent-type-imports': 'error',
+    // Not in recommendedTypeChecked (strict-only); catches `{...someFn}`,
+    // `{...promise}` and `[...string]` when spreading props/styles.
+    '@typescript-eslint/no-misused-spread': 'error',
+    '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/ban-ts-comment': [
       'error',
       { minimumDescriptionLength: 10, 'ts-expect-error': 'allow-with-description' },
