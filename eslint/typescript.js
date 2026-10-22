@@ -11,7 +11,6 @@
 // see ./typescript-strict.js instead — the two are not meant to be combined.
 import tseslint from 'typescript-eslint';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(...tseslint.configs.recommended, {
   rules: {
     'no-undef': 'off', // deferred to tsc, which already checks this

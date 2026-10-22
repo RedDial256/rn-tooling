@@ -7,5 +7,4 @@ import imports from './imports.js';
 import react from './react.js';
 import reactNative from './react-native.js';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [...base, ...react, ...reactNative, ...imports];
