@@ -20,6 +20,9 @@
     "eslint",
     "prettier"
   ],
+  "engines": {
+    "node": "^20.9.0 || >=22.0.0"
+  },
   "scripts": {
     "test": "node --test"
   },
