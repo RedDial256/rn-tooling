@@ -1,6 +1,6 @@
 # Versioning
 
-`@rn-tooling/config` follows [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), with one standard pre-1.0 caveat: while the version stays `0.x.y`, a breaking change bumps **MINOR**, not MAJOR — `0.x` signals "still unstable" under semver itself, so MAJOR is reserved for the first `1.0.0` and beyond.
+`@red_dial/rn-tooling-config` follows [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), with one standard pre-1.0 caveat: while the version stays `0.x.y`, a breaking change bumps **MINOR**, not MAJOR — `0.x` signals "still unstable" under semver itself, so MAJOR is reserved for the first `1.0.0` and beyond.
 
 - **MAJOR** — a change that breaks an existing consumer's config: a rule's default severity changes in a way that fails CI, an export is removed or renamed, a peer dependency floor moves up (e.g. dropping ESLint 9 support).
 - **MINOR** — backwards-compatible additions: a new rule enabled at `warn`, a new optional subpath export, support for a newer ESLint/Prettier major added alongside the existing one. Also used for breaking changes while the version is still `0.x`.
@@ -8,14 +8,14 @@
 
 ## Release channels
 
-Every release goes through the same four stages before anything lands on the default install. Each stage maps to its own npm [dist-tag](https://docs.npmjs.com/cli/v10/commands/npm-dist-tag), so nothing pre-release ever reaches a consumer who just runs `npm install @rn-tooling/config`.
+Every release goes through the same four stages before anything lands on the default install. Each stage maps to its own npm [dist-tag](https://docs.npmjs.com/cli/v10/commands/npm-dist-tag), so nothing pre-release ever reaches a consumer who just runs `npm install @red_dial/rn-tooling-config`.
 
 | Channel | Version shape | npm tag | Install with | Meaning |
 |---|---|---|---|---|
-| **alpha** | `x.y.z-alpha.N` | `alpha` | `npm i @rn-tooling/config@alpha` | Early and unstable. Rule sets can still change shape between alpha releases. For dogfooding on a real RN project before wider testing. |
-| **beta** | `x.y.z-beta.N` | `beta` | `npm i @rn-tooling/config@beta` | Feature-complete for the target version — exports and rule shape are frozen. Further changes are refinements from real-project feedback, not structural changes. |
-| **rc** | `x.y.z-rc.N` | `rc` | `npm i @rn-tooling/config@rc` | Release candidate. No known open issues; final verification only. If nothing breaks, the next publish is stable. |
-| **stable** | `x.y.z` | `latest` | `npm i @rn-tooling/config` | What consumers get by default. |
+| **alpha** | `x.y.z-alpha.N` | `alpha` | `npm i @red_dial/rn-tooling-config@alpha` | Early and unstable. Rule sets can still change shape between alpha releases. For dogfooding on a real RN project before wider testing. |
+| **beta** | `x.y.z-beta.N` | `beta` | `npm i @red_dial/rn-tooling-config@beta` | Feature-complete for the target version — exports and rule shape are frozen. Further changes are refinements from real-project feedback, not structural changes. |
+| **rc** | `x.y.z-rc.N` | `rc` | `npm i @red_dial/rn-tooling-config@rc` | Release candidate. No known open issues; final verification only. If nothing breaks, the next publish is stable. |
+| **stable** | `x.y.z` | `latest` | `npm i @red_dial/rn-tooling-config` | What consumers get by default. |
 
 A version only ever moves forward through this list for a given release — there's no publishing a `beta` after an `rc` for the same target version.
 
@@ -23,7 +23,7 @@ A version only ever moves forward through this list for a given release — ther
 
 Releases are driven by [`@changesets/cli`](https://github.com/changesets/changesets), already installed as a dev dependency and initialized under `.changeset/`. Changesets was chosen over fully-automated tools like `semantic-release` specifically because it keeps a human decision point at every stage transition — nothing enters beta or graduates to stable without someone explicitly running the command for it.
 
-`.changeset/config.json` has `"access": "public"` set explicitly — `@rn-tooling/config` is a scoped package name, and npm treats scoped packages as private by default, which would otherwise make the first publish fail without a paid npm org.
+`.changeset/config.json` has `"access": "public"` set explicitly — `@red_dial/rn-tooling-config` is a scoped package name (published under the personal `@red_dial` scope, not an npm Organization), and npm treats scoped packages as private by default regardless of whether the scope is personal or an org, which would otherwise make the first publish fail.
 
 ### Day-to-day: recording a change
 
@@ -74,7 +74,12 @@ git push --follow-tags
 
 ### Prerequisites
 
-- `npm login`, and ownership of (or publish access to) the `@rn-tooling` scope on npm — required before the first `changeset publish` will succeed.
+- An npm account logged in locally, with publish access to the `@red_dial` scope (it's a personal scope, so this is automatic for the account itself — no npm Organization needed).
+- **2FA and publishing**: if the account's second factor is a passkey/WebAuthn (e.g. Windows Hello), the normal `npm publish`/`changeset publish` flow cannot work — it asks for a numeric OTP (`--otp=<code>`), which a passkey doesn't produce. Passkey-only accounts need a **Granular Access Token** with **"Bypass two-factor authentication"** checked at creation time (npmjs.com → Access Tokens → Generate New Token → Granular Access Token), placed in a local, gitignored `.npmrc`:
+  ```
+  //registry.npmjs.org/:_authToken=<token>
+  ```
+  `npm whoami` confirms the token is being read correctly without needing OTP. If a token was created without the bypass box checked, publishing will still fail with `EOTP` even though `whoami` succeeds — the token has to be recreated with that option on, it can't always be toggled after the fact.
 - A clean, committed working tree before running `version` is recommended (not enforced by Changesets) so the version bump and changelog update are their own reviewable commit.
 
 ## Which channel should a change go through?

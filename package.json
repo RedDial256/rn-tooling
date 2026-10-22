@@ -1,5 +1,5 @@
 {
-  "name": "@rn-tooling/config",
+  "name": "@red_dial/rn-tooling-config",
   "version": "0.2.0-alpha.0",
   "description": "Shared ESLint + Prettier configuration for React Native projects — bare CLI or Expo, JS or TypeScript.",
   "type": "module",
@@ -28,9 +28,9 @@
   "peerDependencies": {
     "eslint": "^9.0.0 || ^10.0.0",
     "eslint-plugin-react": "^7.37.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0 || ^6.0.0 || ^7.0.0",
     "eslint-plugin-react-native": "^5.0.0",
-    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-simple-import-sort": "^12.0.0 || ^13.0.0 || ^14.0.0",
     "prettier": "^3.0.0",
     "typescript": ">=5.0.0",
     "typescript-eslint": "^8.0.0"
@@ -50,9 +50,9 @@
     "@changesets/cli": "^2.31.1",
     "eslint": "^9.39.5",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-native": "^5.0.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
     "prettier": "^3.9.6",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.68.0"
