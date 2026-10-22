@@ -9,7 +9,6 @@
 // Expo-Router / Metro-specific needs come up rather than guessing ahead.
 import globals from 'globals';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
   {
     files: ['**/*.web.{js,jsx,ts,tsx}'],

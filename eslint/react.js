@@ -5,7 +5,6 @@
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'], // automatic JSX runtime, no `import React` needed

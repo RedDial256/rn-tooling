@@ -11,7 +11,6 @@
 // see ./typescript-strict.js instead — the two are not meant to be combined.
 import tseslint from 'typescript-eslint';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(...tseslint.configs.recommended, {
   rules: {
     'no-undef': 'off', // deferred to tsc, which already checks this
@@ -23,6 +22,7 @@ export default tseslint.config(...tseslint.configs.recommended, {
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/array-type': 'warn',
     '@typescript-eslint/consistent-type-assertions': 'warn',
+    '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/no-extra-non-null-assertion': 'warn',
     '@typescript-eslint/ban-ts-comment': [
       'error',
