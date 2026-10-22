@@ -29,7 +29,6 @@ export default tseslint.config(...tseslint.configs.recommendedTypeChecked, {
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
-    // `{...promise}` and `[...string]` when spreading props/styles.
     '@typescript-eslint/no-misused-spread': 'error',
     '@typescript-eslint/consistent-type-imports': 'warn',
     '@typescript-eslint/ban-ts-comment': [
