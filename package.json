@@ -1,6 +1,6 @@
 {
   "name": "@red_dial/rn-tooling-config",
-  "version": "0.2.0-alpha.0",
+  "version": "0.2.0-alpha.1",
   "description": "Shared ESLint + Prettier configuration for React Native projects — bare CLI or Expo, JS or TypeScript.",
   "type": "module",
   "license": "MIT",

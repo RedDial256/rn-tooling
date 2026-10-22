@@ -5,7 +5,11 @@
     "@red_dial/rn-tooling-config": "0.1.0"
   },
   "changesets": [
+    "add-type-imports-and-misused-spread",
+    "declare-node-engines",
     "grumpy-ears-remain",
-    "initial-eslint-prettier-config"
+    "initial-eslint-prettier-config",
+    "perfectionist-import-order",
+    "widen-stale-peer-ranges"
   ]
 }
