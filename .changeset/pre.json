@@ -2,7 +2,7 @@
   "mode": "pre",
   "tag": "alpha",
   "initialVersions": {
-    "@rn-tooling/config": "0.1.0"
+    "@red_dial/rn-tooling-config": "0.1.0"
   },
   "changesets": [
     "grumpy-ears-remain",

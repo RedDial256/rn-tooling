@@ -1,4 +1,4 @@
-# @rn-tooling/config
+# @red_dial/rn-tooling-config
 
 ## 0.2.0-alpha.0
 
