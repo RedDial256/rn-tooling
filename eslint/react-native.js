@@ -5,7 +5,6 @@
 // approach in eslint-config-expo.
 import reactNative from 'eslint-plugin-react-native';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
   {
     plugins: { 'react-native': reactNative },

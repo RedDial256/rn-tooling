@@ -6,7 +6,6 @@ import js from '@eslint/js';
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import globals from 'globals';
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
   js.configs.recommended,
   comments.recommended,
