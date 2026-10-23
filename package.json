@@ -4,6 +4,7 @@
   "description": "Shared ESLint + Prettier configuration for React Native projects — bare CLI or Expo, JS or TypeScript.",
   "type": "module",
   "license": "MIT",
+  "author": "Red Dial <red.dial.256@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RedDial256/rn-tooling.git"
