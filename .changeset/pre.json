@@ -5,6 +5,7 @@
     "@red_dial/rn-tooling-config": "0.1.0"
   },
   "changesets": [
+    "add-npm-metadata",
     "add-type-imports-and-misused-spread",
     "declare-node-engines",
     "grumpy-ears-remain",

@@ -1,5 +1,11 @@
 # @red_dial/rn-tooling-config
 
+## 0.2.0-alpha.2
+
+### Patch Changes
+
+- 95c13ed: Add `author`, `repository`, `homepage`, `bugs` and `keywords` to `package.json` so the npm page links to the GitHub repo and its issues.
+
 ## 0.2.0-alpha.1
 
 ### Minor Changes
